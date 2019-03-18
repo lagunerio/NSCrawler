@@ -1,5 +1,5 @@
 # NSCrawler
-Crawling Shopping page
+Crawling Naver's Shopping page
 
 
 ## Caution!
