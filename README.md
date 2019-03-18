@@ -19,8 +19,8 @@ NSCrawler is Personal Use Only
 - number of reviews
 
 ## data/urls.csv
-Urls should be saved as csv file
-Url has to be end with '&pagingIndex='
+- Urls should be saved as csv file
+- Url has to be end with '&pagingIndex='
 
 ## data/Log.txt
-Every logs are start with time stamp.
+- Every logs are start with time stamp.
