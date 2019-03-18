@@ -24,3 +24,6 @@ NSCrawler is Personal Use Only
 
 ## data/Log.txt
 - Every logs are start with time stamp.
+
+## Reference
+https://www.youtube.com/watch?v=7_IEdMv9eFE
