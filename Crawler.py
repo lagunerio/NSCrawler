@@ -10,6 +10,7 @@ sys.setdefaultencoding('utf-8')
 RESULT_FILE_PATH = "" # CSV FILE PATH TO SAVE RESULT
 URL_FILE_PATH = ""  # CSV FILE PATH OF URLS
 LOG_FILE_PATH = ""  # LOG FILE PATH
+FIELDNAMES = ['data_expose_id', 'price', 'shippingfee', 'productname', 'category', 'seller', 'reviews', 'picks'] # SET CSV FIELDNAMES
 
 # USER AGENT SETTING
 headers = {
@@ -27,8 +28,7 @@ class Crawler:
         WriteLog("URL : " + self.url)
         with open(self.filepath, 'a') as f:
             # set csv writer
-            fieldnames = ['data_expose_id', 'price', 'shippingfee', 'productname', 'category', 'seller', 'reviews', 'picks']
-            writer = csv.DictWriter(f, delimiter=';', fieldnames=fieldnames)
+            writer = csv.DictWriter(f, delimiter=';', fieldnames=FIELDNAMES)
 
             # set BeautifulSoup
             html = requests.get(self.url, headers=headers).text
@@ -108,8 +108,10 @@ def WriteLog(string):
         f.write(str(string) + "\n")
 
 def main():
-    # EMPTY RESULT_FILE_PATH BEFORE CRAWLING
+    # EMPTY RESULT_FILE_PATH BEFORE CRAWLING AND WRITE HEADER
     with open(RESULT_FILE_PATH, 'w') as f:
+        writer = csv.DictWriter(f, delimiter=';', fieldnames=FIELDNAMES)
+        writer.writeheader()
         WriteLog("reset file: " + RESULT_FILE_PATH)
 
     for url in GetUrl():
